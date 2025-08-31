@@ -20,6 +20,10 @@ export default defineManifest({
     'offscreen',
     'microphone',
   ],
+  background: {
+    service_worker: 'src/background/server-worker.ts',
+    type: 'module',
+  },
   content_scripts: [{
     js: ['src/content/main.tsx'],
     matches: ['https://*/*'],

@@ -1,6 +1,7 @@
 import Logo from '@/assets/crx.svg'
 import { useState } from 'react'
 import './App.css'
+import SendMessageButton from '../components/SendMessageButton'
 
 function App() {
   const [show, setShow] = useState(false)
@@ -8,11 +9,11 @@ function App() {
 
   return (
     <div className="popup-container">
-      {show && (
-        <div className={`popup-content ${show ? 'opacity-100' : 'opacity-0'}`}>
-          <h1>HELLO FROM SAIKAT</h1>
+      { show && (
+        <div className={`popup-content ${ show ? 'opacity-100' : 'opacity-0'}`}>
+          <SendMessageButton />
         </div>
-      )}
+      ) }
       <button className="toggle-button" onClick={toggle}>
         <img src={Logo} alt="CRXJS logo" className="button-icon" />
       </button>
