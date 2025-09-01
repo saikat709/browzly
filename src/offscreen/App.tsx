@@ -5,10 +5,10 @@ const App = () => {
     return (
         <div>
             <h1> Audio player. </h1>
-            <audio
+            {/* <audio
                 src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
                 autoPlay
-            />
+            /> */}
         </div>
     );
 }
