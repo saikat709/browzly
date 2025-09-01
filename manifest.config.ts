@@ -18,7 +18,6 @@ export default defineManifest({
     'sidePanel',
     'contentSettings',
     'offscreen',
-    'microphone',
   ],
   background: {
     service_worker: 'src/background/server-worker.ts',

@@ -7,6 +7,12 @@ function App() {
   const [show, setShow] = useState(false)
   const toggle = () => setShow(!show)
 
+
+  chrome.runtime.onMessage.addListener(callback => {
+    console.log(callback.message);
+    return true;
+  })
+
   return (
     <div className="popup-container">
       { show && (

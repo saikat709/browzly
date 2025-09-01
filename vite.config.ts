@@ -19,6 +19,13 @@ export default defineConfig({
     zip({ outDir: 'release', outFileName: `crx-${name}-${version}.zip` }),
     tailwindcss(),
   ],
+  build: {
+    rollupOptions: {
+      input: {
+        offscreen: 'src/offscreen/index.html',
+      },
+    },
+  },
   server: {
     cors: {
       origin: [
