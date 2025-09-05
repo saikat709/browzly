@@ -4,16 +4,23 @@ import BrowzlyLogo from '../../assets/browzly.svg'
 import ChatUI from '@/components/ChatUI.'
 
 function App() {
-  const [showChat, setShowChat] = useState(false)
+  const [ showChat, setShowChat ] = useState(false)
   const toggle = () => setShowChat(!showChat)
-
-  const [isVoiceMode, setIsVoiceMode] = useState(true)
+  const [ isVoiceMode, setIsVoiceMode ] = useState(true)
 
   useEffect(() => {
     chrome.runtime.onMessage.addListener(callback => {
       console.log(callback.message)
       return true
-    })
+    });
+
+    chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+      if ( message.type === "FROM_OFFSCREEN" ) {
+        console.log("Message from offscreen:", message.message);
+        sendResponse({ farewell: "goodbye from content." });
+      }
+      return true;
+    });
   }, [])
 
   return (
